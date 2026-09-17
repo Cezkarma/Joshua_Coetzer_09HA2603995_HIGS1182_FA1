@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool invertY = false;
 
     [Header("Banking")]
-    [Tooltip("Roll applied while strafing. Purely cosmetic - it does not steer the ship.")]
+    [Tooltip("Roll applied while strafing. Purely cosmetic,it does not steer the ship.")]
     [SerializeField] private float bankAngle = 25f;
     [SerializeField] private float bankSmoothing = 6f;
 
