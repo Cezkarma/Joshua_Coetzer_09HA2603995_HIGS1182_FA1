@@ -14,7 +14,6 @@ public class CollectibleManager : MonoBehaviour
 
     private int remaining;
 
-    // Scrap is spawned once here in Start, unlike the asteroids which keep respawning.
     private void Start()
     {
         if (scrapPrefab == null)
@@ -45,7 +44,6 @@ public class CollectibleManager : MonoBehaviour
     }
 }
 
-// Added to each piece at runtime, so the prefab itself needs no extra setup.
 public class ScrapPickup : MonoBehaviour
 {
     public System.Action Collected;
