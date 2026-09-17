@@ -54,6 +54,7 @@ public class PlayerShooting : MonoBehaviour
         Asteroid asteroid = hit.collider.GetComponentInParent<Asteroid>();
         if (asteroid != null)
         {
+            Debug.Log("Asteroid destroyed by a shot.");
             Destroy(asteroid.gameObject);
         }
     }

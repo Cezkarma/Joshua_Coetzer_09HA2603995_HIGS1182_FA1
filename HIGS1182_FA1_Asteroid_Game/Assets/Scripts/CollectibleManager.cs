@@ -55,6 +55,7 @@ public class CollectibleManager : MonoBehaviour
 
         if (collected >= total)
         {
+            Debug.Log("Game won: all scrap collected.");
             GameManager.EndRun();
         }
     }

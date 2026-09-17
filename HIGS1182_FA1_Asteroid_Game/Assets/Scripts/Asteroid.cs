@@ -18,7 +18,13 @@ public class Asteroid : MonoBehaviour
         rb.useGravity = false;
         rb.linearVelocity = direction.normalized * Random.Range(minSpeed, maxSpeed);
 
-        Destroy(gameObject, lifetime);
+        Invoke(nameof(Despawn), lifetime);
+    }
+
+    private void Despawn()
+    {
+        Debug.Log("Asteroid destroyed: lifetime ran out.");
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -28,6 +34,7 @@ public class Asteroid : MonoBehaviour
             return;
         }
 
+        Debug.Log("Game lost: an asteroid hit the player.");
         GameManager.EndRun();
     }
 }

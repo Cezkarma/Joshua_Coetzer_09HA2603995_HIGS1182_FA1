@@ -27,11 +27,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayGame() => SceneManager.LoadScene("MainScene");
+    public void PlayGame() => LoadScene("MainScene");
 
-    public void ShowHowToPlay() => SceneManager.LoadScene("HowToPlayScene");
+    public void ShowHowToPlay() => LoadScene("HowToPlayScene");
 
-    public void ShowMainMenu() => SceneManager.LoadScene("MainMenuScene");
+    public void ShowMainMenu() => LoadScene("MainMenuScene");
 
     public void QuitGame() => Application.Quit();
 
@@ -46,6 +46,12 @@ public class GameManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        SceneManager.LoadScene("GameOverScene");
+        LoadScene("GameOverScene");
+    }
+
+    private static void LoadScene(string sceneName)
+    {
+        Debug.Log($"Loading scene '{sceneName}'.");
+        SceneManager.LoadScene(sceneName);
     }
 }

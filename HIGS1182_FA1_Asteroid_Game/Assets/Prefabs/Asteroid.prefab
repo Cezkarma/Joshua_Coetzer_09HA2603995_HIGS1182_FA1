@@ -151,5 +151,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 14
   maxSpeed: 24
-  maxSpin: 60
-  lifetime: 45
+  lifetime: 30
