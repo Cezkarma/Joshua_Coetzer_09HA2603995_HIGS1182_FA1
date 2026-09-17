@@ -1,9 +1,14 @@
+using TMPro;
 using UnityEngine;
 
 public class CollectibleManager : MonoBehaviour
 {
     [SerializeField] private GameObject scrapPrefab;
     [SerializeField] private int scrapCount = 10;
+
+    [Header("UI")]
+    [Tooltip("Shows the running tally as 'Scrap: collected/total'.")]
+    [SerializeField] private TMP_Text scoreText;
 
     [Header("Placement")]
     [Tooltip("Who to scatter the scrap around. Leave empty to use this object's position.")]
@@ -12,10 +17,15 @@ public class CollectibleManager : MonoBehaviour
     [SerializeField] private float minDistance = 40f;
     [SerializeField] private float maxDistance = 150f;
 
-    private int remaining;
+    private int total;
+    private int collected;
 
     private void Start()
     {
+        total = scrapCount;
+        GameManager.ReportScrap(collected, total);
+        RefreshScoreText();
+
         if (scrapPrefab == null)
         {
             Debug.LogWarning("CollectibleManager: assign a scrap prefab, otherwise nothing will spawn.", this);
@@ -33,14 +43,30 @@ public class CollectibleManager : MonoBehaviour
                 .Collected += OnScrapCollected;
         }
 
-        remaining = scrapCount;
         Debug.Log($"Generated all {scrapCount} pieces of scrap.");
     }
 
     private void OnScrapCollected()
     {
-        remaining--;
-        Debug.Log($"Scrap collected. {remaining} piece(s) left.");
+        collected++;
+        GameManager.ReportScrap(collected, total);
+        RefreshScoreText();
+        Debug.Log($"Scrap collected. {total - collected} piece(s) left.");
+
+        if (collected >= total)
+        {
+            GameManager.EndRun();
+        }
+    }
+
+    private void RefreshScoreText()
+    {
+        if (scoreText == null)
+        {
+            return;
+        }
+
+        scoreText.text = $"Scrap: {collected}/{total}";
     }
 }
 

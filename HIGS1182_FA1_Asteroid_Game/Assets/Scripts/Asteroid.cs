@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Asteroid : MonoBehaviour
@@ -32,6 +31,6 @@ public class Asteroid : MonoBehaviour
             return;
         }
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.EndRun();
     }
 }
