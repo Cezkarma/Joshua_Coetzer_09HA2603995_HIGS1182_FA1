@@ -1,10 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Third-person spaceship controller.
-/// The mouse aims the ship and the camera rides behind it, so pitching the nose
-/// up or down is how the ship climbs and dives. WASD thrusts relative to that aim.
-/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
