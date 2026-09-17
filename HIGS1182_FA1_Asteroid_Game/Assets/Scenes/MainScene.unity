@@ -472,11 +472,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidPrefab: {fileID: 4134680833760820486, guid: 2ef4f943c628c1f41a9d107e5d089f3d, type: 3}
-  minInterval: 0.5
-  maxInterval: 1.5
+  minInterval: 0.1
+  maxInterval: 0.2
   player: {fileID: 1440792216}
-  minDistance: 8
-  maxDistance: 25
+  minDistance: 100
+  maxDistance: 240
   spreadAngle: 30
 --- !u!1 &1394422882
 GameObject:
@@ -795,7 +795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 30, y: -30}
   m_SizeDelta: {x: 500, y: 70}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1737584610

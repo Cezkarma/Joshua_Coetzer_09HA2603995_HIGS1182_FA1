@@ -6,12 +6,10 @@ public class Asteroid : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float minSpeed = 14f;
     [SerializeField] private float maxSpeed = 24f;
-    [Tooltip("Tumble applied on spawn, in degrees per second. Purely cosmetic.")]
-    [SerializeField] private float maxSpin = 60f;
 
     [Header("Lifetime")]
     [Tooltip("Seconds the asteroid stays alive before despawning.")]
-    [SerializeField] private float lifetime = 15f;
+    [SerializeField] private float lifetime = 45f;
 
     public void Launch(Vector3 direction)
     {
@@ -19,7 +17,6 @@ public class Asteroid : MonoBehaviour
 
         rb.useGravity = false;
         rb.linearVelocity = direction.normalized * Random.Range(minSpeed, maxSpeed);
-        rb.angularVelocity = Random.insideUnitSphere * (maxSpin * Mathf.Deg2Rad);
 
         Destroy(gameObject, lifetime);
     }
